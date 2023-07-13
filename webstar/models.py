@@ -10,6 +10,10 @@ class Info(models.Model):
     district = models.CharField(max_length=50)
     date = models.DateField()
 
+    def __str__(self):
+        return self.name
+    
+
 class Feedback(models.Model):
     desc = models.TextField()
     date = models.DateField()
