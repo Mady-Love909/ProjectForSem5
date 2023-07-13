@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock title %}
+{% block body %}
+<div class="container-fluid mb-2 my-4">
+
+  <form action="/loginform" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="mobno">Mobile No</label>
+      <input type="number" class="form-control" id="mobno" name="mobno" placeholder="Mobile number">
+    </div>
+    <br>
+    <div class="form-group">
+      <div class="form-select" aria-label="State">
+        <label for="state">State</label>
+        <select name="state" id="state">
+          <option value="1">Maharashatra</option>
+          <option value="2">Punjab</option>
+          <option value="3">Gujrat</option>
+          <option value="4">Hyderabad</option>
+          <option value="5">Jammu and Kashmir</option>
+          <option value="6">Aarunachal Pradesh</option>
+          <option value="7">Assam</option>
+          <option value="8">Bihar</option>
+          <option value="9">Odisa</option>
+          <option value="10">Chaatisgarh</option>
+          <option value="11">Karnatak</option>
+  
+        </select>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="district">District</label>
+
+      <input class="form-control" list="district" id="district" name = "district" placeholder="Type to search...">
+      <datalist id="district">
+        <option value="Mumbai">
+        <option value="Pune">
+        <option value="Solapur">
+        <option value="Kolhapur">
+        <option value="Satara">
+        <option value="Goa">
+        <option value="Ratnagiri">
+
+        
+
+
+      </datalist>
+
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="city">City</label>
+
+      <input class="form-control" list="cityoptions" id="city" name = "city" placeholder="Type to search...">
+      <datalist id="cityoptions">
+        <option value="Ghakopar">
+        <option value="Kurla">
+        <option value="Matunga">
+        <option value="Dadar">
+        <option value="Vasai">
+        <option value="Borivali">
+        <option value="Kalyan">
+
+        <option value="">
+
+
+      </datalist>
+
+    <!-- <div class="form-group">
+      <label for="gender">Gender</label>
+
+      Male<input type="radio" name="male" id="gender">
+      Female<input type="radio" name="female" id="gender">
+      Others<input type="radio" name="others" id="gender">
+       -->
+    </div>
+
+    </div>
+    <!-- <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div> -->
+    <br>
+    <div class="d-grid gap-2">
+      <button class="btn btn-secondary" type="button">Submit</button>
+      
+    </div>
+  </form>
+
+</div>
+{% endblock body %}

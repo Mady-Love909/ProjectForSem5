@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="container-fluid mb-2 my-4">
+
+    <form action="/feedback" method="post">
+        {% csrf_token %}
+    <div class="form-group">
+        <label for="desc">My Opinion</label>
+        <textarea name="desc" id="desc" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      
+    <!-- <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div> -->
+    <br>
+    <button type="submit" class="btn btn-secondary">Submit</button>
+  </form>
+  
+  </div>
+{% endblock body %}
+
