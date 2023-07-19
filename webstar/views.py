@@ -1,12 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from datetime import datetime
 from webstar.models import Info
 from webstar.models import Feedback
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,logout ,login
 # Create your views here.
 
 def index(request):
-    messages.success(request,'This is message for success')
+    if request.user.is_anonymous:
+        return redirect("/login") 
+    messages.success(request,'WELCOME')
     return render(request,'index.html')
     
 
@@ -14,12 +18,13 @@ def loginform(request):
     
     if request.method == "POST":
        name = request.POST.get('name')
+       email = request.POST.get('email')
        state = request.POST.get('state')
        mobno = request.POST.get('mobno')
        city = request.POST.get('city')
        district = request.POST.get('district')
        
-       login = Info(name = name,state = state, mobno= mobno, city = city,district = district,date = datetime.today())
+       login = Info(name = name,email = email, state = state, mobno= mobno, city = city,district = district,date = datetime.today())
        login.save()
        messages.success(request, "Your message has been sent!")
 
@@ -48,5 +53,24 @@ def feedback(request):
     
     return render(request,'feedback.html')
 
+def loginUser(request):
+    if request.method == "POST":
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            print(username,password)
+            # check if user has entered  a correct credentials
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request,user)
+                # A backend authenticated the credentials
+                return redirect("/")
+            else:
+                # No backend authenticated the credentials
+                return render(request,'login.html')
+    return render(request,'login.html')
+
+def logoutUser(request):
+    logout(request)
+    return redirect("/login")
 
 # Create your views here.

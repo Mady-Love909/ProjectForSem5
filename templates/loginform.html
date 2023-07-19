@@ -8,19 +8,26 @@
     {% csrf_token %}
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="email">Name</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
 
     </div>
     <br>
     <div class="form-group">
       <label for="mobno">Mobile No</label>
-      <input type="number" class="form-control" id="mobno" name="mobno" placeholder="Mobile number">
+      <input type="number" class="form-control" id="mobno" name="mobno" placeholder="Type Your Mobile number">
     </div>
     <br>
     <div class="form-group">
       <div class="form-select" aria-label="State">
         <label for="state">State</label>
         <select name="state" id="state">
+          <option selected="...">Select..</option>
           <option value="Maharashatra">Maharashatra</option>
           <option value="Punjab">Punjab</option>
           <option value="Gujrat">Gujrat</option>
