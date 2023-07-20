@@ -1,4 +1,4 @@
-<!doctype html>
+{% comment %} <!doctype html>
 <html lang="en">
 
 <head>
@@ -109,6 +109,135 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+</body>
+
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | MSGYM</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .may1 {
+            text-align: center;
+        }
+
+        .theme_bg {
+            background: #000;
+            color: aliceblue;
+        }
+
+        
+        .img_respo {
+            image-rendering: auto;
+            image-rendering: crisp-edges;
+            image-rendering: pixelated;
+
+            /* Safari seems to support, but seems deprecated and does the same thing as the others. */
+            image-rendering: -webkit-optimize-contrast;
+            width: 100%;
+
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .bg-image {
+            /* The image used */
+            background-image: url("static/front_page3.jpg");
+
+            /* Add the blur effect */
+            filter: blur(10px);
+            -webkit-filter: blur(3px);
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .bg-text {
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: #000000c4;
+            /* Black w/opacity/see-through */
+            color: white;
+            font-weight: bold;
+            border: 3px solid #f1f1f1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 30%;
+            padding: 150px;
+            text-align: center;
+        }
+
+        .sign_form {
+           
+            border-radius: 8px;
+            
+            text-align: center;
+           display: inline;
+           
+            
+        }
+        .sign_form_inputs{
+            margin: 5px 3px;
+            padding: 20px;
+            
+            
+            font-family: 'Comic Sans MS';
+        }
+
+        .theme_buttons {
+            color:rgb(0, 0, 0);
+            padding: 10px;
+            background: #fff8f8;
+           
+           display: inline-block;
+           font-family: 'Consolas';
+           font-size: 15px;
+           font-style: bold;
+           cursor: pointer;
+           border: #fffcfc;
+           border-width: 2px;
+           margin-top: 10px;
+        }
+
+        
+    </style>
+</head>
+
+<body class="theme_bg">
+
+    <div class="bg-image"></div>
+
+    <div class="bg-text">
+        <form action="/login" method="post" class="sign_form">
+            {% csrf_token %}
+            <img src="static/NewLogo.jpg" alt="..." class="sign_form" width="40%" height="50%" >
+            <input type="text" name="username" id="fname" placeholder="Username" class="sign_form_inputs">
+            <input type="password" name="password" id="fname" placeholder="Password" class="sign_form_inputs">
+            <button class="theme_buttons"  type="submit">LOGIN</button>
+        </form>
+    </div>
+
 </body>
 
 </html>

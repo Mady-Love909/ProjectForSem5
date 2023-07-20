@@ -6,6 +6,7 @@ class Info(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
     mobno = models.CharField(max_length=50)
+    dob = models.DateField(default='2004-04-30')
     state = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
     district = models.CharField(max_length=50)

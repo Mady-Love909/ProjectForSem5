@@ -6,11 +6,12 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,logout ,login
 # Create your views here.
-
+# Password for Authentication website is Mayank333***
 def index(request):
     if request.user.is_anonymous:
+        messages.success(request,'WELCOME')
         return redirect("/login") 
-    messages.success(request,'WELCOME')
+    
     return render(request,'index.html')
     
 
@@ -19,12 +20,13 @@ def loginform(request):
     if request.method == "POST":
        name = request.POST.get('name')
        email = request.POST.get('email')
+       dob = request.POST.get('dob')
        state = request.POST.get('state')
        mobno = request.POST.get('mobno')
        city = request.POST.get('city')
        district = request.POST.get('district')
        
-       login = Info(name = name,email = email, state = state, mobno= mobno, city = city,district = district,date = datetime.today())
+       login = Info(name = name,email = email, state = state, mobno= mobno, city = city,district = district,dob=dob,date = datetime.today())
        login.save()
        messages.success(request, "Your message has been sent!")
 
@@ -72,5 +74,8 @@ def loginUser(request):
 def logoutUser(request):
     logout(request)
     return redirect("/login")
+
+def signup(request):
+    return render(request,'signup.html')
 
 # Create your views here.
